@@ -10,10 +10,15 @@ class Veiculo(models.Model):
     marca = models.CharField(max_length=8)
     modelo = models.CharField(max_length=8)
     cor = models.CharField(max_length=8)
+    ano = models.IntegerField(max_length=4)
 
 class Cliente(models.Model):
     nome = models.CharField(max_length=100)
+    cpf = models.CharField(max_length=11)
+    email = models.EmailField()
     telefone = models.CharField(max_length=15)
+    endereco = models.CharField(max_length=100)
+    cidade = models.CharField(max_length=100)
     veiculo = models.ForeignKey(Veiculo, on_delete=models.CASCADE)
 
 class Servico(models.Model):
